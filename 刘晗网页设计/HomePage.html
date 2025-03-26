@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomePage</title>
+
+  <link rel="stylesheet" href="HomePage.css" />
+</head>
+<body>
+  <div class="HomePage">
+    <div class="NavigationBar">
+      <canvas width="25px" height="25px" id="rectangular"></canvas>
+      <a href="https://kdocs.cn/l/caFPHqdpwZEA" id="Second"><b>2023</b></a>
+      <a href="https://kdocs.cn/l/caFPHqdpwZEA" id="Third"><b>2024</b></a>
+      <a href="https://kdocs.cn/l/caFPHqdpwZEA" id="Fourth"><b>2025</b></a>
+      <hr />
+      <p><b>LIUHAN'S HomePage</b></p>
+    </div>
+
+    <div class="TheFirst">
+      <p id="Name"><b>LIUHAN</b></p>
+    </div>
+
+    <div class="TheSecond">
+      <div class="Myself">
+        <img src="IMG_4082.jpg" alt="Myself" id="profilePic" />
+      </div>
+
+      <div class="Introduction">
+        <div class="flex-line">
+          <p id="Birthday"><b>BIRTHDAY</b></p>
+          <p id="Birthdays"><b>2000.05.30</b></p>
+        </div>
+
+        <p id="Education"><b>EDUCATION</b></p>
+
+        <div class="flex-line">
+          <p id="SchoolThird"><b>Hong Kong Baptist University</b></p>
+          <p id="DateThird"><b>Sept.2024-Jun.2025</b></p>
+        </div>
+        <p id="MajorThird">
+          <b>Major: Artificial intelligence<br />and digital media</b>
+        </p>
+
+        <div class="flex-line">
+          <p id="School"><b>Hangzhou Dianzi University</b></p>
+          <p id="DateFirst"><b>Sept.2019-Jun.2023</b></p>
+        </div>
+        <p id="Major"><b>Major: Digital Media Arts</b></p>
+        <p id="LevelFirst"><b>Level: bachelor</b></p>
+
+        <div class="flex-line">
+          <p id="SchoolSecond"><b>Anqing Nine One Six School</b></p>
+          <p id="DateSecond"><b>Sept.2015-Jun.2019</b></p>
+        </div>
+        <p id="LevelSecond"><b>Level: High School</b></p>
+
+        <hr />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("rectangular");
+    const ctx = canvas.getContext("2d");
+    let size = 0;
+    let grow = true;
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, 25, size);
+      grow ? size += 0.5 : size -= 0.5;
+      if (size >= 25) grow = false;
+      if (size <= 5) grow = true;
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    const img = document.getElementById("profilePic");
+    let isZoomed = false;
+    img.ondblclick = function () {
+      if (!isZoomed) {
+        img.style.transform = "scale(1.8)";
+        img.style.transition = "transform 0.4s ease";
+        isZoomed = true;
+      } else {
+        img.style.transform = "scale(1)";
+        isZoomed = false;
+      }
+    };
+  </script>
+</body>
+</html>
